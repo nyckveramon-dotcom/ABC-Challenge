@@ -31,7 +31,14 @@ const abecedario = [
 document.addEventListener("DOMContentLoaded", () => {
     const tarjetasContenedor = document.getElementById("abc");
     const contadorTexto = document.getElementById("clickCounterValue");
+    const btnVocales = document.getElementById("btn-vocales");
+    const btnAbecedario = document.getElementById("btn-abecedario");
+
+    const vocales = ["A", "E", "I", "O", "U"];
+
     let letrasVistas = 0;
+
+    const tarjetascreadas = [] // se guardan las tarjetas para que se filtren
 
     abecedario.forEach(item => {
         const card = document.createElement("div");
@@ -64,5 +71,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         tarjetasContenedor.appendChild(card);
+
+        // Relacionamos cada tarjeta con su letra
+        tarjetasCreadas.push({
+            elemento: card,
+            letra: item.letra
+        });
+    });
+
+    // Filtro de vocales
+    btnVocales.addEventListener("click", () => {
+        tarjetasCreadas.forEach(tarjeta => {
+            if (vocales.includes(tarjeta.letra.toUpperCase())) {
+                tarjeta.elemento.style.display = "";
+            } else {
+                tarjeta.elemento.style.display = "none";
+            }
+        });
+    });
+
+    // Mostrar todas las letras
+    btnAbecedario.addEventListener("click", () => {
+        tarjetasCreadas.forEach(tarjeta => {
+            tarjeta.elemento.style.display = "";
+        });
     });
 });
