@@ -77,3 +77,14 @@ body {
     margin: 0;
     font-weight: bold;
 }
+.integrantes{
+    
+}
+/*Footer*/
+.integrantes h1{
+    color: black;
+
+}
+.integrantes p{
+    color: rgb(39, 161, 59);
+}

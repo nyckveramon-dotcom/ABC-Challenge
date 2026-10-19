@@ -28,14 +28,16 @@ const abecedario = [
     { letra: 'Z', palabra: 'Zorro', imagen: 'https://www.primeraescuela.com/imagestn/puzzles/alfabeto/z_zorra.png' }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-    const tarjetas = document.getElementById("abc");
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    //Llamado del html 
+    const tarjetas = document.getElementById("abc");
+    //Recorrer el arreglo
     abecedario.forEach(item => {
         // Crear tarjetas
         const card = document.createElement("div");
         card.classList.add("card");
-
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-frente">
@@ -50,10 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //VOLTEAR
         card.addEventListener("click", () => {
+
             card.classList.toggle("flipped")
         });
 
         tarjetas.appendChild(card);
     });
+
+    //Cambiar 
 });
 
