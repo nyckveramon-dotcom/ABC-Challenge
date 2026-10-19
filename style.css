@@ -6,6 +6,10 @@ body {
     margin: 0;
     padding: 20px;
     color: #2c3e50;
+    /* El body actúa como contenedor flex vertical para empujar el footer al fondo */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 header {
@@ -24,6 +28,11 @@ header p {
     font-size: 1.2rem;
     color: #34495e;
     font-weight: 600;
+}
+
+/* El contenido principal crece para ocupar el espacio disponible */
+main {
+    flex: 1;
 }
 
 /* Contenedor principal en cuadrícula adaptable */
@@ -114,37 +123,15 @@ header p {
     font-weight: bold;
 }
 
-footer {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
+
 .contenedorFooter {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.nombresFinal {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items: center;
-  
-
-  width: 100%;
-  background-color: #f9f9f9;    
-  border: 2px solid #ddd;       
-  border-top: 5px solid #ff4d4d; 
-  padding: 20px 0;             
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.nombresFinal p {
-  margin: 0;                   
-  padding: 2px 0;             
-  font-size: 15px;
-  color: #666;
+  margin-top: auto;
+  padding: 10px 16px;
   text-align: center;
+  background-color: #f7f8fc;
+  border: 1px solid #e45b67;
+}
+
+.contenedorFooter p {
+  margin: 4px 0;
 }
