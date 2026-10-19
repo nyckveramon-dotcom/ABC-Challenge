@@ -1,5 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
 
+h1 {
+    text-align: center;
+}
 
-/*NAVBAR */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-/* CARDS Y FLIP*/
+/* Estructura de la tarjeta */
+.card {
+    background-color: transparent;
+    width: 140px;
+    height: 190px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Girar la tarjeta */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-frente, .card-atras {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/* Frente (Letra) */
+.card-frente h2 {
+    font-size: 55px;
+    margin: 0;
+}
+
+/* Atrás (Imagen y Palabra) */
+.card-atras {
+    transform: rotateY(180deg);
+}
+
+.card-atras img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.card-atras p {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
