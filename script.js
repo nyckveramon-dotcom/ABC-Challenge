@@ -17,9 +17,9 @@ const abecedario = [
     { letra: 'O', palabra: 'Oso', imagen: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ecoavant.com%2Fuploads%2Fs1%2F23%2F39%2F34%2Fel-calentamiento-global-y-el-deshielo-del-artico-ponen-en-peligro-la-supervivencia-del-oso-polar.jpeg&f=1&nofb=1&ipt=437c5ca7fae6a7972e52741e7743949ff1ed76dcf9ce1d250764f69f6bae537c&ipo=images' },
     { letra: 'P', palabra: 'Perro', imagen: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.viraliking.com%2Fwp-content%2Fuploads%2F2022%2F06%2F9-de-las-mejores-razas-de-perros-familiares.jpg&f=1&nofb=1&ipt=0df939a81b69379e9829916c4fc1bc203af85b59bea6646ff3fbee2f987d57c3&ipo=images' },
     { letra: 'Q', palabra: 'Queso', imagen: 'https://i.pinimg.com/736x/83/40/08/834008f0da13d2f421dab8d062a6fa59.jpg' },
-    { letra: 'R', palabra: 'Rana', imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5NIPFw8XVWHgeowVNlQqrDXczMjh1i3z8UCXAc09h1u2DtP9alpCFGDM&s=10' },
+    { letra: 'R', palabra: 'Reloj', imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5NIPFw8XVWHgeowVNlQqrDXczMjh1i3z8UCXAc09h1u2DtP9alpCFGDM&s=10' },
     { letra: 'S', palabra: 'Sol', imagen: 'https://i.pinimg.com/474x/ea/42/35/ea42354efd8fcfd768f7e31524c4c820.jpg?nii=t' },
-    { letra: 'T', palabra: 'Tigre', imagen: 'https://i.pinimg.com/736x/2c/ad/3d/2cad3d7dc6a785077e616a7a893b5dd8.jpg' },
+    { letra: 'T', palabra: 'Tren', imagen: 'https://i.pinimg.com/736x/2c/ad/3d/2cad3d7dc6a785077e616a7a893b5dd8.jpg' },
     { letra: 'U', palabra: 'Uva', imagen: 'https://i.pinimg.com/736x/42/b1/58/42b1586d445e99fb02053cf39291d6ce.jpg' },
     { letra: 'V', palabra: 'Vaca', imagen: 'https://i.pinimg.com/736x/aa/bf/cc/aabfcc9a35bae86447336a9fa3dc0bea.jpg' },
     { letra: 'W', palabra: 'Wafle', imagen: 'https://i.pinimg.com/236x/be/61/3e/be613eb0b8a4eb9a4b1f73b16f76d5b8.jpg' },
@@ -41,9 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const tarjetascreadas = [] // se guardan las tarjetas para que se filtren
 
     abecedario.forEach(item => {
-        // Crear tarjetas
         const card = document.createElement("div");
         card.classList.add("card");
+
+        // Incluimos la imagen y la palabra dentro del reverso (card-atras)
         card.innerHTML = `
             <div class="card-inner">
                 <div class="card-frente">
@@ -56,16 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
-        //VOLTEAR
+        // Evento para voltear (ida y vuelta) y contar solo la primera vez
         card.addEventListener("click", () => {
+            card.classList.toggle("volteada");
 
-            card.classList.toggle("flipped")
+            if (card.classList.contains("volteada") && !card.dataset.contada) {
+                card.dataset.contada = "true";
+                letrasVistas++;
+                if (contadorTexto) {
+                    contadorTexto.textContent = letrasVistas;
+                }
+            }
         });
 
         tarjetasContenedor.appendChild(card);
 
         // Relacionamos cada tarjeta con su letra
-        tarjetasCreadas.push({
+        tarjetascreadas.push({
             elemento: card,
             letra: item.letra
         });
@@ -73,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Filtro de vocales
     btnVocales.addEventListener("click", () => {
-        tarjetasCreadas.forEach(tarjeta => {
+        tarjetascreadas.forEach(tarjeta => {
             if (vocales.includes(tarjeta.letra.toUpperCase())) {
                 tarjeta.elemento.style.display = "";
             } else {
@@ -84,11 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mostrar todas las letras
     btnAbecedario.addEventListener("click", () => {
-        tarjetasCreadas.forEach(tarjeta => {
+        tarjetascreadas.forEach(tarjeta => {
             tarjeta.elemento.style.display = "";
         });
     });
-
-    //Cambiar 
 });
-
