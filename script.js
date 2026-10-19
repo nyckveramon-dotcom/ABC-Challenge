@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tarjetasContenedor.appendChild(card);
 
         // Relacionamos cada tarjeta con su letra
-        tarjetasCreadas.push({
+        tarjetascreadas.push({
             elemento: card,
             letra: item.letra
         });
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Filtro de vocales
     btnVocales.addEventListener("click", () => {
-        tarjetasCreadas.forEach(tarjeta => {
+        tarjetascreadas.forEach(tarjeta => {
             if (vocales.includes(tarjeta.letra.toUpperCase())) {
                 tarjeta.elemento.style.display = "";
             } else {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mostrar todas las letras
     btnAbecedario.addEventListener("click", () => {
-        tarjetasCreadas.forEach(tarjeta => {
+        tarjetascreadas.forEach(tarjeta => {
             tarjeta.elemento.style.display = "";
         });
     });
