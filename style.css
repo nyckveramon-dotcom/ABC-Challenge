@@ -6,6 +6,10 @@ body {
     margin: 0;
     padding: 20px;
     color: #2c3e50;
+    /* El body actúa como contenedor flex vertical para empujar el footer al fondo */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 header {
@@ -24,6 +28,11 @@ header p {
     font-size: 1.2rem;
     color: #34495e;
     font-weight: 600;
+}
+
+/* El contenido principal crece para ocupar el espacio disponible */
+main {
+    flex: 1;
 }
 
 /* Contenedor principal en cuadrícula adaptable */
@@ -112,11 +121,17 @@ header p {
 .card-atras p {
     font-size: 1rem;
     font-weight: bold;
-    color: #2d3436;
-    margin: 0;
-    padding: 0 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 90%;
+}
+
+
+.contenedorFooter {
+  margin-top: auto;
+  padding: 10px 16px;
+  text-align: center;
+  background-color: #f7f8fc;
+  border: 1px solid #e45b67;
+}
+
+.contenedorFooter p {
+  margin: 4px 0;
 }
