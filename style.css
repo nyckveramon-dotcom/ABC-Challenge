@@ -96,3 +96,22 @@ h1 {
     margin: 0;
     font-weight: bold;
 }
+
+.contenedorFooter{
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+}
+.nombresFinal{
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;     
+    width: 100%; 
+    border: 3px solid #333;
+    padding: 20px;
+    border-radius: 0; 
+    font-family: sans-serif;
+    gap: 10px; 
+    box-sizing: border-box;
+}
