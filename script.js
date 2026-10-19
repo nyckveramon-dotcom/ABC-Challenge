@@ -28,6 +28,30 @@ const abecedario = [
     { letra: 'Z', palabra: 'Zorro' }
 ];
 
+document.addEventListener("DOMContentLoaded", () => {
+    const tarjetas = document.getElementById("abc");
+
+    abecedario.forEach(item => {
+        // Crear tarjetas
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+            <div class="card-inner">
+                <div class="card-frente">
+                    <h2>${item.letra}</h2>
+                </div>
+                <div class="card-atras">
+                    <img src="${item.imagen}" alt="${item.palabra}">
+                    <p>${item.palabra}</p>
+                </div>
+            </div>
+        `;
+        tarjetas.appendChild(card);
+    });
+});
+
+
 
 // VOLTEAR
 
