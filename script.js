@@ -33,6 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Llamado del html 
     const tarjetas = document.getElementById("abc");
+
+
+  
+
     //Recorrer el arreglo
     abecedario.forEach(item => {
         // Crear tarjetas

@@ -4,21 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC-Challenge</title>
+    <title>ABC Challenge</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
-    <header>
 
+    <header>
+        <h1>Aprende el Abecedario</h1>
+        <p>Has hecho clic en <span id="clickCounterValue">0</span> letras únicas</p>
     </header>
     <section class="galeria">
         <div class="grid" id="abc"></div>
     </section>
     <footer>
 
-    </footer>
+    <main>
+        <!-- Contenedor donde JavaScript genera dinámicamente el abecedario -->
+        <section id="abc" class="galeria"></section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
