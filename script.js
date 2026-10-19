@@ -41,19 +41,8 @@ abecedario.forEach(item => {
                     <div class="card-frente">
                         <h2>${item.letra}</h2>
                     </div>
-                    <div class="card-atras">
-                        <img src="${item.imagen}" alt="${item.palabra}">
-                        <p>${item.palabra}</p>
-                    </div>
                 </div>
             `;
-
-    //Voltear Tarjetas
-    card.addEventListener("click", () => {
-        card.classList.toggle("flipped");
-    });
-
-    tarjetas.appendChild(card);
 })
 
 
