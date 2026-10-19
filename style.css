@@ -6,9 +6,37 @@ body {
     margin: 0;
     padding: 20px;
     color: #2c3e50;
+    /* El body actúa como contenedor flex vertical para empujar el footer al fondo */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-.grid {
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #34495e;
+    font-weight: 600;
+}
+
+/* El contenido principal crece para ocupar el espacio disponible */
+main {
+    flex: 1;
+}
+
+/* Contenedor principal en cuadrícula adaptable */
+#abc {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 20px;
@@ -94,14 +122,16 @@ body {
     font-size: 1rem;
     font-weight: bold;
 }
-.integrantes{
-    
-}
-/*Footer*/
-.integrantes h1{
-    color: black;
 
+
+.contenedorFooter {
+  margin-top: auto;
+  padding: 10px 16px;
+  text-align: center;
+  background-color: #f7f8fc;
+  border: 1px solid #e45b67;
 }
-.integrantes p{
-    color: rgb(39, 161, 59);
+
+.contenedorFooter p {
+  margin: 4px 0;
 }

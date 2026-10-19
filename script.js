@@ -28,16 +28,18 @@ const abecedario = [
     { letra: 'Z', palabra: 'Zorro', imagen: 'https://www.primeraescuela.com/imagestn/puzzles/alfabeto/z_zorra.png' }
 ];
 
-
 document.addEventListener("DOMContentLoaded", () => {
+    const tarjetasContenedor = document.getElementById("abc");
+    const contadorTexto = document.getElementById("clickCounterValue");
+    const btnVocales = document.getElementById("btn-vocales");
+    const btnAbecedario = document.getElementById("btn-abecedario");
 
-    //Llamado del html 
-    const tarjetas = document.getElementById("abc");
+    const vocales = ["A", "E", "I", "O", "U"];
 
+    let letrasVistas = 0;
 
-  
+    const tarjetascreadas = [] // se guardan las tarjetas para que se filtren
 
-    //Recorrer el arreglo
     abecedario.forEach(item => {
         // Crear tarjetas
         const card = document.createElement("div");
@@ -60,7 +62,31 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.toggle("flipped")
         });
 
-        tarjetas.appendChild(card);
+        tarjetasContenedor.appendChild(card);
+
+        // Relacionamos cada tarjeta con su letra
+        tarjetasCreadas.push({
+            elemento: card,
+            letra: item.letra
+        });
+    });
+
+    // Filtro de vocales
+    btnVocales.addEventListener("click", () => {
+        tarjetasCreadas.forEach(tarjeta => {
+            if (vocales.includes(tarjeta.letra.toUpperCase())) {
+                tarjeta.elemento.style.display = "";
+            } else {
+                tarjeta.elemento.style.display = "none";
+            }
+        });
+    });
+
+    // Mostrar todas las letras
+    btnAbecedario.addEventListener("click", () => {
+        tarjetasCreadas.forEach(tarjeta => {
+            tarjeta.elemento.style.display = "";
+        });
     });
 
     //Cambiar 
